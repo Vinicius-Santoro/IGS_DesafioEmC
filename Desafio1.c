@@ -22,7 +22,6 @@ int	maior_valor(int v1, int v2, int v3, int v4)
 			maior_numero = v4;
 	}
 	return (maior_numero);
-
 }
 
 int	main() {
