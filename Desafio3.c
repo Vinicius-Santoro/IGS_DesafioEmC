@@ -61,20 +61,38 @@ int criar_array(int *array_int, int max_elementos){
 }
 
 
+void    bubble_sort(int* array, int tamanho_array)
+{
+    int aux = 0;
+    for (int i = 1; i < tamanho_array; i++) 
+    {
+        for (int j = 0; j < tamanho_array - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                aux = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = aux;
+            }
+        }
+    }
+}
+
 
 int maximo_elementos(int valor_ref, int* array, int tamanho_array) {
 
     //1 Task: organizar o arry de forma crescente.
-    int aux = 0;
-    for (int j = 0; j < tamanho_array - 1; j++)
-    {
-        if (array[j] > array[j + 1])
-        {
-            aux = array[j];
-            array[j] = array[j + 1];
-            array[j + 1] = aux;
-        }
-    }
+    printf("Antes do bubble sort:\n");
+     for(int i = 0; i < tamanho_array; i++)
+        printf("%d\n", array[i]);
+
+    bubble_sort(array, tamanho_array);
+
+    printf("Depois do bubble sort:\n");
+    for(int i = 0; i < tamanho_array; i++)
+        printf("%d\n", array[i]);
+
+
 }
 
 int main () {
