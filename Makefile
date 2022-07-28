@@ -6,12 +6,12 @@ SRC_FILES    =  Desafio1.c \
                 Desafio4.c \
                 Desafio5.c
 
-SRC			=	$(SRC_FILES))
-OBJ			=	$(subst .c,.o,$(SRC_FILES)))
+SRC			=	$(SRC_FILES)
+OBJ			=	$(subst .c,.o,$(SRC_FILES))
 
-# $(SRC):		$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
-# 					mkdir -p $(OBJ_PATH)
-# 					$(CC) -c $< -o $@
+$(SRC):		$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
+					mkdir -p $(OBJ_PATH)
+					$(CC) -c $< -o $@
 
 all:			$(OBJ)
 				$(CC) $(SRC_FILES) -o $(OBJ)
