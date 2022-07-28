@@ -60,8 +60,21 @@ int criar_array(int *array_int, int max_elementos){
     return idx;
 }
 
+
+
 int maximo_elementos(int valor_ref, int* array, int tamanho_array) {
- //complete…
+
+    //1 Task: organizar o arry de forma crescente.
+    int aux = 0;
+    for (int j = 0; j < tamanho_array - 1; j++)
+    {
+        if (array[j] > array[j + 1])
+        {
+            aux = array[j];
+            array[j] = array[j + 1];
+            array[j + 1] = aux;
+        }
+    }
 }
 
 int main () {
