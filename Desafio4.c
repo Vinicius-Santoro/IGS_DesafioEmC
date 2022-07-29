@@ -13,26 +13,13 @@
 int binario_para_decimal(int *numero)
 {
     int decimal;
-
-    decimal =  (numero[0] * pow(2,0) + \
-                numero[1] * pow(2,1) + \
-                numero[2] * pow(2,2) + \
-                numero[3] * pow(2,3) + \
-                numero[4] * pow(2,4) + \
-                numero[5] * pow(2,5) + \
-                numero[6] * pow(2,6) + \
-                numero[7] * pow(2,7));
+    for(int i = 0; i < 8; i++)
+        decimal += (numero[i] * pow(2, i));
     return(decimal);
 }
 
 int calcular_maximum_bitwise(int v1, int v2) {
 
-    /*
-    1: transformar v1 em binário de 8 bytes;
-    2: transformar v2 em binário de 8 bytes;
-    3: comparar por binario
-        - transformar para decimal e validar o maior
-    */
     int array_v1[8] = {0};
     int array_v2[8] = {0};
     int i = 0;
@@ -52,13 +39,12 @@ int calcular_maximum_bitwise(int v1, int v2) {
 		j++;
 		v2 = v2 / 2;
 	}
-    if(binario_para_decimal(array_v1) == binario_para_decimal(array_v2))
-        return (aux_v1);
-    else if (binario_para_decimal(array_v1) > binario_para_decimal(array_v2))
+    if (binario_para_decimal(array_v1) > binario_para_decimal(array_v2))
         return (aux_v1);
     else
         return (aux_v2);
 }
+
 int main() {
 
     int valor_1, valor_2, maior_valor;
