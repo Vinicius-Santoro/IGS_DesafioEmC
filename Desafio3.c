@@ -81,15 +81,6 @@ void    bubble_sort(int* array, int tamanho_array)
     }
 }
 
-int    validacao_numero_negativo(int* array, int tamanho_array)
-{
-    for (int j = 0; j < tamanho_array - 1; j++)
-    {
-        if (array[j] < 0)
-           return(1);
-    }
-}
-
 int maximo_elementos(int valor_ref, int* array, int tamanho_array)
 {
     int aux = 0;
@@ -98,10 +89,7 @@ int maximo_elementos(int valor_ref, int* array, int tamanho_array)
 
     for(i = 0; aux < valor_ref; i++)
         aux = aux + array[i];
-    if(validacao_numero_negativo(array, tamanho_array))
-        return((i - 1)/2);
-    else
-        return(i - 1);
+    return(i - 1);
 }
 
 int main ()
