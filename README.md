@@ -110,20 +110,34 @@ int binario_para_decimal(int *numero)
 
 - Desafio 5:
 
-Para este desafio, utilizei a lógica de cada índice do array cartela, ser procurado em todo o array de sorteio. Por exemplo.
+Para este desafio, utilizei a lógica de cada índice do array cartela, ser procurado em todo o array de sorteio. Por exemplo:
 
+|Sorteio| 3 | 7 | 4 | 8 |
+|-------|---|---|---|---|
+|Cartela| 1 | 4 | 9 | 2 |
+Retorno | O | X | O | O |
 
-  
- 1º - transformei as variávies `v1` e `v2` em número binários de 8 bytes.<br>
- 2º - transformei os binários para decimal seguinte a lógica de exponenciação..<br>
- 3º - retornar o maior número de acordo com a transformação do binário feito.<br>
- 
+O algoritmo percorrerá o array de sorteio a procura do número 1. Como não encontrou, o retorno na posição[i] será 'O'. Após isso, procuraremos o número 4 em todo o array do sorteio. Como encontrou,  o retorno na posição[i] será 'X'.
+
 ```c
-int binario_para_decimal(int *numero)
+void avaliar_marcacao(int *sorteio, int tam_sorteio, int *cartela, char* marcacao, int tam_marcacao)
 {
-    int decimal;
-    for(int i = 0; i < 8; i++)
-        decimal += (numero[i] * pow(2, i));
-    return(decimal);
+    int j;
+    for(int i = 0; cartela[i]; i++)
+    {
+        j = 0;
+       for(int j = 0; sorteio[j]; j++)
+       {
+            if(sorteio[j] == cartela[i])
+            {
+                marcacao[i] = 'X';
+                break;
+            }
+            else
+                marcacao[i] = 'O';
+        }
+    }
 }
 ```
+  
+ 
