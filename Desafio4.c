@@ -10,6 +10,21 @@
 #include <math.h>
 #include <stdlib.h>
 
+int binario_para_decimal(int *numero)
+{
+    int decimal;
+
+    decimal =  (numero[0] * pow(2,0) + \
+                numero[1] * pow(2,1) + \
+                numero[2] * pow(2,2) + \
+                numero[3] * pow(2,3) + \
+                numero[4] * pow(2,4) + \
+                numero[5] * pow(2,5) + \
+                numero[6] * pow(2,6) + \
+                numero[7] * pow(2,7));
+    return(decimal);
+}
+
 int calcular_maximum_bitwise(int v1, int v2) {
 
     /*
@@ -18,8 +33,31 @@ int calcular_maximum_bitwise(int v1, int v2) {
     3: comparar por binario
         - transformar para decimal e validar o maior
     */
+    int array_v1[8] = {0};
+    int array_v2[8] = {0};
+    int i = 0;
+    int j = 0;
+    int aux_v1 = v1;
+    int aux_v2 = v2;
 
-
+   	while(v1 > 0)
+	{
+		array_v1[i] = v1 % 2;
+		i++;
+		v1 = v1 / 2;
+	}
+    while(v2 > 0)
+	{
+		array_v2[i] = v2 % 2;
+		j++;
+		v2 = v2 / 2;
+	}
+    if(binario_para_decimal(array_v1) == binario_para_decimal(array_v2))
+        return (aux_v1);
+    else if (binario_para_decimal(array_v1) > binario_para_decimal(array_v2))
+        return (aux_v1);
+    else
+        return (aux_v2);
 }
 int main() {
 
